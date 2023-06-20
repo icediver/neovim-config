@@ -47,6 +47,7 @@ require("lazy").setup({
         dependencies = {{'nvim-tree/nvim-web-devicons'}}
     }, {"folke/which-key.nvim"},
     { 'phaazon/hop.nvim'},
+    { 'hrsh7th/cmp-vsnip' },
     { 'hrsh7th/vim-vsnip' },
     {'hrsh7th/vim-vsnip-integ'}
 });
