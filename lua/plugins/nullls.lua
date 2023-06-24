@@ -1,50 +1,47 @@
-local null_ls = require("null-ls")
+local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+if not null_ls_status_ok then
+	return
+end
+
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+local formatting = null_ls.builtins.formatting
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+local diagnostics = null_ls.builtins.diagnostics
+
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		-- filter = function(clients)
+		-- filter out clients that you don't want to use
+		-- return vim.tbl_filter(function(client)
+		-- return client.name ~= "tsserver"
+		-- end, clients)
+		-- end,
+		bufnr = bufnr,
+	})
+end
+
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.eslint_d.with { filetypes = {
-            "typescript",
-            "javascript",
-            "typescriptreact",
-            "javascriptreact"
-        } },
-        null_ls.builtins.formatting.lua_format,
-        null_ls.builtins.diagnostics.eslint_d,
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.diagnostics.ltrs,
-        null_ls.builtins.formatting.rustfmt,
-        null_ls.builtins.formatting.prettierd.with { filetypes = {
-        "css",
-        "scss",
-        "less",
-        "html",
-        "json",
-        "jsonc",
-        "yaml",
-        "markdown",
-        "markdown.mdx",
-        "graphql",
-        "handlebars",
-    },
-}
-    },
+	debug = false,
+	sources = {
+		formatting.prettier.with({
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+		}),
+		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.stylua,
+		-- diagnostics.flake8
+	},
 	on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({ 
-						bufnr = bufnr,
-						filter = function(client)
-							return client.name == "null-ls"
-						end
-					 })
-                    -- vim.lsp.buf.formatting_sync()
-                end,
-            })
-        end
-    end,
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					lsp_formatting(bufnr)
+				end,
+			})
+		end
+	end,
 })
