@@ -20,6 +20,7 @@ require("lazy").setup({
 	{ "cooperuser/glowbeam.nvim" },
 	{ "joshdick/onedark.vim" },
 	{ "nvim-treesitter/nvim-treesitter" },
+	{ "HiPhish/nvim-ts-rainbow2" },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
