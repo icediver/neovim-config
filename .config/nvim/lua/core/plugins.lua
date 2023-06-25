@@ -49,5 +49,22 @@ require("lazy").setup({
     { 'phaazon/hop.nvim'},
     { 'hrsh7th/cmp-vsnip' },
     { 'hrsh7th/vim-vsnip' },
-    {'hrsh7th/vim-vsnip-integ'}
+    {'hrsh7th/vim-vsnip-integ'},
+    {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    dependencies = {
+        { "nvim-tree/nvim-web-devicons" },
+        --Please make sure you install markdown and markdown_inline parser
+        { "nvim-treesitter/nvim-treesitter" },
+    },
+    {
+        "barrett-ruth/import-cost.nvim",
+        build = "sh install.sh yarn",
+        -- if on windows
+        -- build = 'pwsh install.ps1 yarn',
+        config = true,
+    },
+},
+
 });
