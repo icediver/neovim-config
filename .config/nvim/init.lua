@@ -23,3 +23,6 @@ require("plugins.neotree")
 require("plugins.dashboard")
 require("plugins.whichkey")
 require("plugins.hop")
+require("plugins.lspsaga")
+require("plugins.importcost")
+
