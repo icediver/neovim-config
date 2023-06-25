@@ -25,4 +25,4 @@ require("plugins.whichkey")
 require("plugins.hop")
 require("plugins.lspsaga")
 require("plugins.importcost")
-
+require("plugins.colorizer")
