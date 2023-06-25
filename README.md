@@ -2,6 +2,6 @@
 neovim config
 
 ```pwsh
-git clone https://github.com/icediver/neovim-config.git $env:LOCALAPPDATA\nvim
+git clone https://github.com/icediver/neovim-config.git ~/.config/nvim
 nvim
 ```
