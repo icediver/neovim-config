@@ -90,4 +90,5 @@ require("lazy").setup({
 		config = true,
 	},
 	{ "norcalli/nvim-colorizer.lua" },
+	{ "Pocco81/auto-save.nvim" },
 })

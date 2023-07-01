@@ -5,9 +5,16 @@ local lspconfig = require("lspconfig")
 lspconfig.pyright.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.prismals.setup({})
-lspconfig.cssls.setup({
-	capabilities = capabilities,
-})
+-- lspconfig.cssls.setup({
+-- 	capabilities = capabilities,
+-- 	["settings"] = {
+-- 		scss = {
+-- 			lint = {
+-- 				unknownAtRules = "ingnore",
+-- 			},
+-- 		},
+-- 	},
+-- })
 lspconfig.golangci_lint_ls.setup({})
 lspconfig.rust_analyzer.setup({
 	settings = {
