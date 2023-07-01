@@ -91,4 +91,15 @@ require("lazy").setup({
 	},
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "Pocco81/auto-save.nvim" },
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 })
