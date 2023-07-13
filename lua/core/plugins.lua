@@ -20,7 +20,7 @@ require("lazy").setup({
 	{ "cooperuser/glowbeam.nvim" },
 	{ "joshdick/onedark.vim" },
 	{ "nvim-treesitter/nvim-treesitter" },
-	{ "HiPhish/nvim-ts-rainbow2" },
+	--{ "HiPhish/nvim-ts-rainbow2" },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
@@ -103,4 +103,5 @@ require("lazy").setup({
 		opts = {},
 	},
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 })
