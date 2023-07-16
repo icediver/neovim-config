@@ -63,6 +63,19 @@ lspconfig.emmet_language_server.setup({
 lspconfig.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		tailwindCSS = {
+			experimental = {
+				classRegex = {
+					"tw([^])",
+					'tw="([^"])',
+					'tw={"([^"}])',
+					"tw.w+([^])",
+					"tw(.?)([^])",
+				},
+			},
+		},
+	},
 })
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

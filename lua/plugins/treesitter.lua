@@ -6,20 +6,4 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 	},
-	rainbow = {
-		enable = true,
-		query = {
-			"rainbow-parens",
-		},
-		strategy = require("ts-rainbow").strategy.global,
-		hlgroups = {
-			"TSRainbowRed",
-			"TSRainbowYellow",
-			"TSRainbowBlue",
-			"TSRainbowOrange",
-			"TSRainbowGreen",
-			"TSRainbowViolet",
-			"TSRainbowCyan",
-		},
-	},
 })

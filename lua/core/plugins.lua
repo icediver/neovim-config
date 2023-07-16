@@ -20,7 +20,7 @@ require("lazy").setup({
 	{ "cooperuser/glowbeam.nvim" },
 	{ "joshdick/onedark.vim" },
 	{ "nvim-treesitter/nvim-treesitter" },
-	--{ "HiPhish/nvim-ts-rainbow2" },
+	{ "HiPhish/rainbow-delimiters.nvim" },
 	{ "neovim/nvim-lspconfig" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-buffer" },
@@ -104,4 +104,24 @@ require("lazy").setup({
 	},
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+	{ "mg979/vim-visual-multi", branch = "master" },
+	{
+		"Wansmer/treesj",
+		keys = { "<space>m", "<space>j", "<space>s" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("treesj").setup({--[[ your config ]]
+			})
+		end,
+	},
 })
